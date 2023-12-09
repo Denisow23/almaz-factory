@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+</head>
+<body>
+<h1>Edit task</h1>
+<form action="/director/materials/edit" method="post">
+    <input type="hidden" name="id" th:value="${material.id}">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required th:value="${material.name}">
+    </div>
+    <div>
+        <label for="count">Priority:</label>
+        <input type="number" id="count" name="count" required th:value="${material.count}">
+    </div>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

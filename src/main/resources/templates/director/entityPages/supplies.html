@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Supplies</title>
+</head>
+<body>
+<h1>SUPPLIES</h1>
+<h3><a href="/director">Вернуться назад</a></h3>
+<h3><a href="/director/supplies/create">Создать новую поставку</a></h3>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Date</th>
+    <th>Completed</th>
+    <th>Material</th>
+    <th>Weight Of Supply</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="supply : ${supplies}">
+    <td th:text="${supply.id}"></td>
+    <td th:text="${supply.dateOfSupply}"></td>
+    <td th:text="${supply.isCompleted}"></td>
+    <td th:text="${supply.material.name}"></td>
+    <td th:text="${supply.weightOfSupply}"></td>
+    <td>
+      <a th:href="@{/director/supplies/edit/{id}(id=${supply.id})}">Edit</a>
+      <a th:href="@{/director/supplies/delete/{id}(id=${supply.id})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/director">Вернуться назад</a>
+<!--<a href="/task/create">Create task</a>-->
+</body>
+</html>

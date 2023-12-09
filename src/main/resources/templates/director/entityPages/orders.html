@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+<h1>ORDERS</h1>
+<h3><a href="/director">Вернуться назад</a></h3>
+<h3><a href="/director/orders/create">Создать новый заказ</a></h3>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Customer</th>
+        <th>State</th>
+        <th>Date</th>
+        <th>Product</th>
+        <th>Count</th>
+        <th>Count Left</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.customer.customerName}"></td>
+        <td th:text="${order.stateOfOrder}"></td>
+        <td th:text="${order.dateOfOrder}"></td>
+        <td th:text="${order.product.name}"></td>
+        <td th:text="${order.count}"></td>
+        <td th:text="${order.countLeft}"></td>
+        <td>
+            <a th:href="@{/director/orders/edit/{id}(id=${order.id})}">Edit</a>
+            <a th:href="@{/director/orders/delete/{id}(id=${order.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/director">Вернуться назад</a>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create supply</title>
+</head>
+<body>
+<h1>Edit task</h1>
+<form action="/director/supplies/create" method="post">
+    <input type="hidden" name="id" th:value="${supply.id}">
+    <div>
+        <label for="dateOfSupply">DATE:</label>
+        <input type="date" id="dateOfSupply" name="dateOfSupply" required th:value="${supply.dateOfSupply}">
+    </div>
+    <div>
+        <label for="isCompleted">isCompleted:</label>
+        <select id="isCompleted" th:field="${supply.isCompleted}">
+            <option th:value="false">false</option>
+            <option th:value="true">true</option>
+        </select>
+    </div>
+    <div>
+        <label for="material">Material:</label>
+        <select name="material" id="material" th:field="${supply.material}">
+            <option th:each="material : ${materials}"
+                    required th:value="${material.id}" th:text="${material.name}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="weightOfSupply">weightOfSupply:</label>
+        <input type="number" id="weightOfSupply" name="weightOfSupply" required th:value="${supply.weightOfSupply}">
+    </div>
+    <!--    <div>-->
+    <!--        <label for="count">Priority:</label>-->
+    <!--        <input type="number" id="count" name="count" required th:value="${material.count}">-->
+    <!--    </div>-->
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

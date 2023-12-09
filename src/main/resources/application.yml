@@ -1,0 +1,11 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/almaz_database
+        username: postgres
+        password: Denisow2004
+    hibernate:
+        ddl-auto: none
+
+logging:
+    level:
+        root: DEBUG

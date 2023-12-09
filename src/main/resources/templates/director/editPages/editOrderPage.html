@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+</head>
+<body>
+<h1>Edit task</h1>
+<form action="/director/orders/create" method="post">
+    <input type="hidden" name="id" th:value="${order.id}">
+    <div>
+        <label for="customer">Customer:</label>
+        <select name="customer" id="customer" th:field="${order.customer}">
+            <option th:each="customer : ${customers}"
+                    required th:value="${customer.id}" th:text="${customer.customerName}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="stateOfOrder">State:</label>
+        <select name="stateOfOrder" id="stateOfOrder" th:field="${order.stateOfOrder}">
+            <option th:each="stateOfOrder : ${T(ru.denisov.AlmazFactory.model.enums.StateOfOrder).values()}"
+                    required th:value="${stateOfOrder}" th:text="${stateOfOrder}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="dateOfOrder">DATE:</label>
+        <input type="date" id="dateOfOrder" name="dateOfOrder" required th:value="${order.dateOfOrder}">
+    </div>
+    <div>
+        <label for="product">Product:</label>
+        <select name="product" id="product" th:field="${order.product}">
+            <option th:each="product : ${products}"
+                    required th:value="${product.id}" th:text="${product.name}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="count">Count:</label>
+        <input type="number" id="count" name="count" required th:value="${order.count}">
+    </div>
+    <!--    <div>-->
+    <!--        <label for="count">Priority:</label>-->
+    <!--        <input type="number" id="count" name="count" required th:value="${material.count}">-->
+    <!--    </div>-->
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

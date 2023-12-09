@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Materials</title>
+</head>
+<body>
+<h1>MATERIALS</h1>
+<h3><a href="/director">Вернуться назад</a></h3>
+<h3><a href="/director/materials/create">Создать новый материал в базе материалов</a></h3>
+
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Count</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="material : ${materials}">
+    <td th:text="${material.id}"></td>
+    <td th:text="${material.name}"></td>
+    <td th:text="${material.count}"></td>
+    <td>
+      <a th:href="@{/director/materials/edit/{id}(id=${material.id})}">Edit</a>
+      <a th:href="@{/director/materials/delete/{id}(id=${material.id})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
