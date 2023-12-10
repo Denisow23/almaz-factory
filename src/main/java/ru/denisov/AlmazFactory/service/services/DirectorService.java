@@ -1,4 +1,4 @@
-package ru.denisov.AlmazFactory.service;
+package ru.denisov.AlmazFactory.service.services;
 
 import ru.denisov.AlmazFactory.model.*;
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Orders in work</title>
+</head>
+<body>
+<h1>ORDERS IN WORK</h1>
+<h3><a href="/worker">Вернуться назад</a></h3>
+<table>
+  <thead>
+  <tr>
+    <th>Product</th>
+    <th>Count Left</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.OrderVIew.product.name}"></td>
+    <td th:text="${order.OrderVIew.countLeft}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

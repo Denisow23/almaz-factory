@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+</head>
+<body>
+<h1>Edit task</h1>
+<form action="/hr/employees/edit" method="post">
+    <input type="hidden" name="jobTitle" th:value="${empl.jobTitle}">
+    <input type="hidden" name="id" th:value="${empl.id}">
+    <input type="hidden" name="startWork" th:value="${empl.startWork}">
+    <input type="hidden" name="endWork" th:value="${empl.endWork}">
+    <input type="hidden" name="emplLogin" th:value="${empl.emplLogin}">
+
+    <div>
+        <label for="fullName">fullName:</label>
+        <input type="text" id="fullName" name="fullName" required th:value="${empl.fullName}">
+    </div>
+    <div>
+        <label for="rank">Rank:</label>
+        <select name="rank" id="rank" th:field="${empl.rank}">
+            <option th:each="rank : ${ranks}"
+                    required th:value="${rank.id}" th:text="${rank.id}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" required th:value="${empl.salary}">
+    </div>
+    <div>
+        <label for="benefits">Benefits:</label>
+        <input type="number" id="benefits" name="benefits" required th:value="${empl.benefits}">
+    </div>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

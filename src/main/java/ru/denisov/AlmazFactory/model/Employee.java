@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
+import org.springframework.format.annotation.DateTimeFormat;
 import ru.denisov.AlmazFactory.model.enums.JobTitleOfEmployee;
 
 import java.util.Date;
@@ -16,7 +17,7 @@ import java.util.Date;
 public class Employee {
 
     @Id @Generated
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "fullname")
@@ -35,15 +36,19 @@ public class Employee {
     @Column(name = "job_title")
     private JobTitleOfEmployee jobTitle;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
    @Generated
     @Temporal(TemporalType.DATE)
     private Date startWork;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date endWork;
 
     @Column(name = "empl_login")
     private String emplLogin;
+
+    private String password;
 
 
 

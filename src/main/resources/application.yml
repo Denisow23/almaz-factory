@@ -6,6 +6,6 @@ spring:
     hibernate:
         ddl-auto: none
 
-logging:
-    level:
-        root: DEBUG
+#logging:
+#    level:
+#        root: DEBUG

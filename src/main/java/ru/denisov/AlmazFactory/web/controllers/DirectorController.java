@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.denisov.AlmazFactory.model.Material;
 import ru.denisov.AlmazFactory.model.Order;
-import ru.denisov.AlmazFactory.model.Product;
 import ru.denisov.AlmazFactory.model.Supply;
-import ru.denisov.AlmazFactory.repository.ProductRepository;
-import ru.denisov.AlmazFactory.service.DirectorService;
+import ru.denisov.AlmazFactory.service.services.DirectorService;
 
 @Controller
 @RequiredArgsConstructor

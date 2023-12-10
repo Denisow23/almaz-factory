@@ -1,10 +1,11 @@
-package ru.denisov.AlmazFactory.service;
+package ru.denisov.AlmazFactory.service.implementations;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.denisov.AlmazFactory.model.*;
 import ru.denisov.AlmazFactory.repository.*;
+import ru.denisov.AlmazFactory.service.services.DirectorService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +13,14 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class DirectorServiceImpl implements DirectorService{
+public class DirectorServiceImpl implements DirectorService {
 
     private final OrderRepository orderRepository;
     private final SupplyRepository supplyRepository;
     private final MaterialRepository materialRepository;
     private final ProductRepository productRepository;
     private final CustomerRepository customerRepository;
+
     @Override
     public List<Order> getAllOrders() {
         log.debug("Call getAllOrders in DirectorService");

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee</title>
+</head>
+<body>
+<h1>Create Employee</h1>
+<form action="/hr/create" method="post">
+
+    <div>
+        <label for="fullName">fullName:</label>
+        <input type="text" id="fullName" name="fullName" required th:value="${empl.fullName}">
+    </div>
+    <div>
+        <label for="rank">Rank:</label>
+        <select name="rank" id="rank" th:field="${empl.rank}">
+            <option th:each="rank : ${ranks}"
+                    required th:value="${rank.id}" th:text="${rank.id}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="benefits">Benefits:</label>
+        <input type="number" id="benefits" name="benefits" required th:value="${empl.benefits}">
+    </div>
+    <div>
+        <label for="jobTitle">Job title:</label>
+        <select name="jobTitle" id="jobTitle">
+            <option th:each="jobTitle : ${jobTitles}"
+                    required th:value="${jobTitle}" th:text="${jobTitle}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="emplLogin">Login:</label>
+        <input type="text" id="emplLogin" name="emplLogin" required th:value="${empl.emplLogin}">
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required th:value="${empl.password}">
+    </div>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

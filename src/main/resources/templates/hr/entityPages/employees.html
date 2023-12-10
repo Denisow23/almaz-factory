@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+</head>
+<body>
+<h1>EMPLOYEES</h1>
+<h3><a href="/hr">Вернуться назад</a></h3>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>fullName</th>
+        <th>Salary</th>
+        <th>Job Title</th>
+        <th>Start work</th>
+        <th>End Work</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="empl : ${employees}">
+        <td th:text="${empl.id}"></td>
+        <td th:text="${empl.fullName}"></td>
+        <td th:text="${empl.salary} + ${empl.rank.salary} + ${empl.benefits}"></td>
+        <td th:text="${empl.jobTitle}"></td>
+        <td th:text="${empl.startWork}"></td>
+        <td th:text="${empl.endWork}"></td>
+        <td>
+            <a th:href="@{/hr/employees/edit/{id}(id=${empl.id})}">Edit</a>
+            <a th:href="@{/hr/employees/dismiss/{id}(id=${empl.id})}">Dismiss</a>
+            <a th:href="@{/hr/employees/calculate/{id}(id=${empl.id})}">Calculate</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
