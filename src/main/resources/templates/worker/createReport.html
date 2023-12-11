@@ -6,14 +6,20 @@
 </head>
 <body>
 <h1>Edit task</h1>
-<form action="/worker/createReport" method="post">
-  <div>
-    <label for="employee">Employee:</label>
-    <select name="employee" id="employee" th:field="${report.pk.employee}">
-      <option th:each="employee : ${employees}"
-              required th:value="${employee.id}" th:text="${employee.fullName}"></option>
-    </select>
-  </div>
+<form th:action="@{/worker/{id}/createReport(id=${id})}" method="post">
+<!--  <div>-->
+<!--    <label for="employee">Employee:</label>-->
+<!--    <select name="employee" id="employee" th:field="${report.pk.employee}">-->
+<!--      <option th:each="employee : ${employees}"-->
+<!--              required th:value="${employee.id}" th:text="${employee.fullName}"></option>-->
+<!--    </select>-->
+<!--  </div>-->
+    <div>
+      <label for="product">Id:</label>
+      <input type="hidden" name="id" th:value="${id}">
+    </div>
+
+
   <div>
     <label for="product">Product:</label>
     <select name="product" id="product" th:field="${report.pk.product}">

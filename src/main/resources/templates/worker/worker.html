@@ -5,10 +5,11 @@
     <title>Task Manager</title>
 </head>
 <body>
-<h1>Hello, Worker!</h1>
+<h1>Hello, <span th:text="${empl.fullName}"></span>!</h1>
 
-<h3><a href="/worker/orders">Посмотреть заказы</a></h3>
-<h3><a href="/worker/createReport">Создать отчет</a></h3>
+<h3><a th:href="@{/worker/{id}/orders(id=${empl.id})}">Посмотреть заказы</a></h3>
+<h3><a th:href="@{/worker/{id}/createReport(id=${empl.id})}">Создать отчет</a></h3>
+<h3><a th:href="@{/worker/{id}/reports(id=${empl.id})}">Посмотреть отчеты</a></h3>
 
 </body>
 </html>

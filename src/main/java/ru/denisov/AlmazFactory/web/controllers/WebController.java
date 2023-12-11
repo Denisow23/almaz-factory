@@ -34,7 +34,7 @@ public class WebController {
             if (employee.getJobTitle().equals(JobTitleOfEmployee.DIRECTOR)){
                 return "redirect:/director";
             }if (employee.getJobTitle().equals(JobTitleOfEmployee.WORKER)){
-                return "redirect:/worker";
+                return "redirect:/worker/" + employee.getId();
             }
         }
         return "redirect:/";

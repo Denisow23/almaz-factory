@@ -14,7 +14,9 @@ public interface WorkerService {
     Report saveReport(Report report);
     List<Product> getAllProducts();
     List<Employee> getAllEmployees();
-
+    Employee getEmployeeById(Integer id);
     List<Orders2WorkerEntity> getAllOrders();
+
+    List<Report> getReportsByEmployeeId(Integer id);
 
 }

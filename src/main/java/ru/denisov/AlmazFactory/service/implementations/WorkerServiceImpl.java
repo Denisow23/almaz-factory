@@ -65,9 +65,23 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
+    public Employee getEmployeeById(Integer id) {
+        log.debug("Call getEmployeeById in WorkerService");
+
+        return employeeRepository.findById(id).orElseThrow();
+    }
+
+    @Override
     public List<Orders2WorkerEntity> getAllOrders() {
         log.debug("Call getAllReports in WorkerService");
 
         return orders2WorkerEntityRepository.findAll();
+    }
+
+    @Override
+    public List<Report> getReportsByEmployeeId(Integer id) {
+        log.debug("Call getReportsByEmployeeId");
+
+        return reportRepository.getReportsById(id);
     }
 }
