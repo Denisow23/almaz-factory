@@ -2,11 +2,15 @@ package ru.denisov.AlmazFactory.service.implementations;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import ru.denisov.AlmazFactory.model.*;
 import ru.denisov.AlmazFactory.repository.*;
 import ru.denisov.AlmazFactory.service.services.DirectorService;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +99,12 @@ public class DirectorServiceImpl implements DirectorService {
     public Supply saveSupply(Supply supply) {
         log.debug("Call saveSupply in DirectorService");
 
-        return supplyRepository.save(supply);
+        supplyRepository.addMySupply(
+                supply.getIsCompleted(),
+                supply.getMaterial().getId(),
+                supply.getWeightOfSupply());
+        log.debug("LUCK!");
+        return supply;
     }
 
     @Override
@@ -170,7 +179,7 @@ public class DirectorServiceImpl implements DirectorService {
     public void deleteSuppliesById(int id) {
         log.debug("Call deleteSuppliesById in DirectorService");
 
-        supplyRepository.deleteById(id);
+        supplyRepository.deleteSupply(id);
     }
 
     @Override

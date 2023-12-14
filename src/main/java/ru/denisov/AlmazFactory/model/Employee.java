@@ -37,7 +37,7 @@ public class Employee {
     private JobTitleOfEmployee jobTitle;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-   @Generated
+    @Generated
     @Temporal(TemporalType.DATE)
     private Date startWork;
 

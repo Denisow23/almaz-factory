@@ -25,8 +25,9 @@ public class WorkerController {
     }
 
     @GetMapping("/worker/{id}/orders")
-    public String getOrdersInWork(Model model){
+    public String getOrdersInWork(Model model, @PathVariable Integer id){
         model.addAttribute("orders", workerService.getAllOrders());
+        model.addAttribute("id", id);
         return "worker/orders";
     }
 
